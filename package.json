@@ -1,0 +1,31 @@
+{
+  "name": "vscode-unrealscript",
+  "displayName": "UnrealScript language for VSCode",
+  "description": "UnrealScript language for VSCode",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Blade <blade.eric@gmail.com>",
+  "license": "BSD",
+  "engines": {
+    "vscode": "^1.29.1"
+  },
+  "categories": [ "Programming Languages" ],
+  "contributes": {
+    "languages": [ {
+      "id": "unrealscript",
+      "extensions": [ ".uc" ],
+      "aliases": [ "uc", "UnrealScript" ],
+      "configuration": "./language-configuration.json"
+    } ],
+    "grammars": [ {
+      "language": "unrealscript",
+      "scopeName": "unrealscript.uc",
+      "path": "./unrealscript.tmLanguage.json"
+    }]
+  },
+  "repository": {
+    "url": "https://github.com/ericblade/vscode-unrealscript"
+  }
+}
