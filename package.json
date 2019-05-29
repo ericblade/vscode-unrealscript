@@ -3,7 +3,7 @@
   "main": "./out/extension.js",
   "displayName": "UnrealScript language for VSCode",
   "description": "UnrealScript language for VSCode",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -b",
