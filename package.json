@@ -1,29 +1,74 @@
 {
   "name": "vscode-unrealscript",
+  "main": "./out/extension.js",
   "displayName": "UnrealScript language for VSCode",
   "description": "UnrealScript language for VSCode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w"
   },
   "author": "Eric Blade <blade.eric@gmail.com>",
   "license": "BSD",
   "engines": {
-    "vscode": "^1.29.1"
+    "vscode": "^1.34.0"
   },
-  "categories": [ "Programming Languages" ],
+  "publisher": "EricBlade",
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:workbench.action.tasks.runTask",
+    "onCommand:ucc.hello"
+  ],
   "contributes": {
-    "languages": [ {
-      "id": "unrealscript",
-      "extensions": [ ".uc" ],
-      "aliases": [ "uc", "UnrealScript" ],
-      "configuration": "./language-configuration.json"
-    } ],
-    "grammars": [ {
-      "language": "unrealscript",
-      "scopeName": "unrealscript.uc",
-      "path": "./unrealscript.tmLanguage.json"
-    }]
+    "commands": [
+      {
+        "command": "ucc.hello",
+        "title": "Hello World"
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "unreal123",
+        "required": [
+          "task"
+        ],
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "UCC make"
+          }
+        }
+      }
+    ],
+    "languages": [
+      {
+        "id": "unrealscript",
+        "extensions": [
+          ".uc"
+        ],
+        "aliases": [
+          "uc",
+          "UnrealScript"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "unrealscript",
+        "scopeName": "unrealscript.uc",
+        "path": "./unrealscript.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.0",
+    "typescript": "^3.4.5",
+    "@types/vscode": "^1.34.0"
   },
   "repository": {
     "url": "https://github.com/ericblade/vscode-unrealscript"
